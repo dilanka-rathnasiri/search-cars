@@ -1,0 +1,15 @@
+csv-pipeline:
+  workers: 2
+  source:
+    file:
+      path: "/usr/share/data-prepper/processed_data.csv"
+      record_type: "event"
+      codec:
+        csv:
+          delimiter: ","
+          quote_character: "\""
+          detect_header: true
+  processor:
+    - csv:
+  sink:
+    - stdout:
