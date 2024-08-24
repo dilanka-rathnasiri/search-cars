@@ -1,3 +1,8 @@
 spring:
-    application:
-        name=data-writer
+    elasticsearch:
+        uris: "http://0.0.0.0:9200"
+        username: "elastic"
+        password: "dilanka-rathnasiri"
+        connection-timeout: 5s
+csv:
+    path: "../dataset/processed_data.csv"
