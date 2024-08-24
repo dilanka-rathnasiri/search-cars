@@ -7,13 +7,14 @@ import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @Service
 public class EsService {
     private final SportCarRepo sportCarRepo;
 
-    public Iterable<SportCarDoc> convertCsvRecordsToSportCarDoc(Iterable<CSVRecord> csvRecords) {
+    public List<SportCarDoc> convertCsvRecordsToSportCarDoc(final List<CSVRecord> csvRecords) {
         int i = 0;
         ArrayList<SportCarDoc> sportCarDocs = new ArrayList<>();
         for (CSVRecord csvRecord : csvRecords) {
@@ -34,7 +35,7 @@ public class EsService {
     }
 
 
-    public void insertData(final Iterable<SportCarDoc> records) {
+    public void insertData(final List<SportCarDoc> records) {
         sportCarRepo.saveAll(records);
     }
 }

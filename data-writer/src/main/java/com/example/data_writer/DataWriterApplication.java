@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;
+import java.util.List;
 
 @RequiredArgsConstructor
 @SpringBootApplication
@@ -30,8 +31,8 @@ public class DataWriterApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         try {
-            Iterable<CSVRecord> records = csvService.loadCsvFile(csvFilePath);
-            Iterable<SportCarDoc> convertedDocs = esService.convertCsvRecordsToSportCarDoc(records);
+            List<CSVRecord> records = csvService.loadCsvFile(csvFilePath);
+            List<SportCarDoc> convertedDocs = esService.convertCsvRecordsToSportCarDoc(records);
             esService.insertData(convertedDocs);
         } catch (IOException e) {
             System.out.println(e.getMessage());
