@@ -1,8 +1,8 @@
 spring:
     elasticsearch:
-        uris: "http://0.0.0.0:9200"
-        username: "elastic"
-        password: "dilanka-rathnasiri"
+        uris: ${ES_URL}
+        username: ${ES_USERNAME}
+        password: ${ES_PASSWORD}
         connection-timeout: 5s
 csv:
-    path: "../dataset/processed_data.csv"
+    path: ${DATASET_PATH}
